@@ -1,10 +1,12 @@
 import React from 'react'
 import Header from '../componentes/Header/Header'
+import GetProducto from '../componentes/productos/GetProducto'
 function Productos() {
   return (
     <div>
         <Header/>
-        <h2>Productos</h2>
+        <GetProducto/>
+        {/* <h2>Productos</h2> */}
     </div>
   )
 }

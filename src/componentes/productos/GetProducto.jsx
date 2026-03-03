@@ -1,17 +1,17 @@
 import React from 'react'
-
-const URL = "http://localhost:3000/api/productos/2"
+import { use } from "react";
+const URL = "http://127.0.0.1:3000/api/productos/2"
 const fetchProducto = async() => {
-    const productos = await fetch(URL);
-
-    return productos.json();
+    const producto = await fetch(URL);
+    return producto.json();
 }
 const productoPromise = fetchProducto();
 function GetProducto() {
-  const producto =  use();
+  const producto = use(productoPromise);
   return (
-    
-    <div>{producto.nombre}</div>
+    <div>
+      <h1>{producto.nombre}</h1>
+    </div>
   )
 }
 
