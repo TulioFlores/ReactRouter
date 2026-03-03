@@ -7,14 +7,11 @@ import Categorias from './vistas/Categorias'
 function App() {
 
   return (
-    <>
-      <Routes>
-        <Route path='/' element={<Inicio/>} />
-        <Route path='productos' element={<Productos/>} />
-        <Route path='/categorias' element={<Categorias/>} />
-      </Routes>
-    </>
-
+    <Routes>
+      <Route path='/' element={<Inicio />} />
+      <Route path='/productos' element={<Productos />} />
+      <Route path='/categorias' element={<Categorias />} />
+    </Routes>
   )
 }
 
