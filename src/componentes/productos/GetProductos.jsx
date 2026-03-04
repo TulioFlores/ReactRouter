@@ -10,7 +10,7 @@ function GetProductos() {
     const productos = use(productosPromise);
     return (
         <div>
-            <table>
+            <table className='table'>
                 <caption>Productos</caption>
                 <thead>
                     <tr>
@@ -21,13 +21,17 @@ function GetProductos() {
                     </tr>
                 </thead>
                 <tbody>
-                    {productos.map((producto) => {
+                    {productos.map((producto) => (
                          <tr key={producto.id}>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{producto.nombre}</td>
+                            <td>{producto.precio}</td>
+                            <td>{producto.categoria}</td>
+                            <table>
+                                <button className='btn btn-primary'>Editar</button>
+                                <button className='btn btn-danger'>Eliminar</button>
+                            </table>
                          </tr>   
-                    })}
+                    ))}
                 </tbody>
             </table>
 

@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Header from '../componentes/Header/Header'
-import GetProducto from '../componentes/productos/GetProducto'
+import GetProductos from '../componentes/productos/GetProductos'
+
 function Productos() {
   return (
     <div>
-        <Header/>
-        <GetProducto/>
-        {/* <h2>Productos</h2> */}
+      <Header />
+      <Suspense  fallback={<h2>Cargando...</h2>}>
+        {<GetProductos />}
+      </Suspense>
+
     </div>
   )
 }
