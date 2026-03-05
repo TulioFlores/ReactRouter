@@ -9,7 +9,9 @@ const productosPromise = fetchProductos();
 function GetProductos() {
     const productos = use(productosPromise);
     return (
-        <div>
+        <div className='container'>
+            <h2>Productos</h2>
+            <button className='btn btn-primary'>Agregar producto</button>
             <table className='table'>
                 <caption>Productos</caption>
                 <thead>
@@ -34,7 +36,6 @@ function GetProductos() {
                     ))}
                 </tbody>
             </table>
-
         </div>
     )
 }
