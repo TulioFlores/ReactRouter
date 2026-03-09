@@ -1,17 +1,23 @@
 import React from 'react'
 import { use } from "react";
+import { useNavigate } from 'react-router-dom';
 const URL = "http://127.0.0.1:3000/api/productos"
 const fetchProductos = async () => {
     const productos = await fetch(URL);
     return productos.json();
 }
 const productosPromise = fetchProductos();
+
 function GetProductos() {
+    const navigate = useNavigate();
+    const manejarBtnAgregar = () => {
+        navigate("/agregarproducto")
+    }
     const productos = use(productosPromise);
     return (
         <div className='container'>
             <h2>Productos</h2>
-            <button className='btn btn-primary'>Agregar producto</button>
+            <button className='btn btn-primary' onClick={manejarBtnAgregar}>Agregar producto</button>
             <table className='table'>
                 <caption>Productos</caption>
                 <thead>
