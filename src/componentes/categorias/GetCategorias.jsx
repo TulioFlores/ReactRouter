@@ -13,12 +13,12 @@ function GetCategorias() {
   return (
     <div>
       {categorias.map((categoria) => (
-          <option value={categoria.id}>
+          <option key={categoria.id} value={categoria.id}>
             {categoria.name}
           </option>
       ))}
     </div>
   )
 }
-
+ 
 export default GetCategorias
