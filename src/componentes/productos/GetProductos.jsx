@@ -14,8 +14,7 @@ function GetProductos() {
         navigate("/agregarproducto")
     }
     const btnEditar = (id) => {
-        navigate(`/etidarproductos/${id}`)
-        
+        navigate(`/editarproducto/${id}`)
     }
     const productos = use(productosPromise);
     return (
@@ -37,9 +36,9 @@ function GetProductos() {
                          <tr key={producto.id}>
                             <td>{producto.nombre}</td>
                             <td>{producto.precio}</td>
-                            <td>{producto.categoria}</td>
+                            <td>{producto.categoriaId}</td>
                             <table>
-                                <button className='btn btn-primary' onSubmit={btnEditar(2)}>Editar</button>
+                                <button className='btn btn-primary' onClick={ () => btnEditar(producto.id)}>Editar</button>
                                 <button className='btn btn-danger'>Eliminar</button>
                             </table>
                          </tr>   

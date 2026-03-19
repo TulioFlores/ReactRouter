@@ -2,18 +2,19 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import GetCategorias from '../categorias/GetCategorias'
 import { useNavigate, useParams } from 'react-router-dom';
-function EditarProducto() {
+function EditarProducto({idProducto}) {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-    setValue,
+    setValue
   } = useForm();
   const navigate = useNavigate();
-  const { id } = useParams();
-
-  const URL = `http://127.0.0.1:3000/api/productos/${id}`;
+  const btnCancelar = () => {
+      navigate("/productos");
+  }
+  const URL = `http://127.0.0.1:3000/api/productos/${idProducto}`;
   const getDatos = async () => {
     const response = await fetch(URL);
     const datos = await response.json();
@@ -75,7 +76,7 @@ function EditarProducto() {
 
             </div>
             <div className="mb-3 d-flex justify-content-end">
-              <button className='btn btn-danger ms-2'>Cancelar</button>
+              <button className='btn btn-danger ms-2' onClick={btnCancelar}>Cancelar</button>
               <button className='btn btn-primary ms-2'>Guardar</button>
             </div>
           </form>

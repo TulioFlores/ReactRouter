@@ -4,7 +4,7 @@ import Inicio from './vistas/Inicio'
 import Productos from './vistas/Productos'
 import Categorias from './vistas/Categorias'
 import NewProducto from "./vistas/NewProducto";
-import EditarProducto from "./componentes/productos/EditarProducto";
+import EditProducto from "./vistas/EditProducto";
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
       <Route path='/productos' element={<Productos />} />
       <Route path='/categorias' element={<Categorias />} />
       <Route path='/agregarproducto' element={<NewProducto />} />
-      <Route path='/editarProducto/:id' element={<EditarProducto />} />
+      <Route path='/editarProducto/:id' element={<EditProducto />} />
     </Routes>
   )
 }
