@@ -6,6 +6,7 @@ const fetchProductos = async () => {
     const productos = await fetch(URL);
     return productos.json();
 }
+
 const productosPromise = fetchProductos();
 
 function GetProductos() {
@@ -15,6 +16,20 @@ function GetProductos() {
     }
     const btnEditar = (id) => {
         navigate(`/editarproducto/${id}`)
+    }
+    const btnEliminar = async (id) => {
+        let userChoice = confirm("¿Estas seguro de borrar el producto?");
+        if (userChoice) {
+            const resp = await fetch(URL + "/" + id, {
+                method: "DELETE",
+                headers: { "Content-type": "application/json" }
+            });
+            if (resp.status == 200) {
+                alert("Producto eliminado exitosamente");
+                
+            }
+            location.reload();
+        }
     }
     const productos = use(productosPromise);
     return (
@@ -33,15 +48,15 @@ function GetProductos() {
                 </thead>
                 <tbody>
                     {productos.map((producto) => (
-                         <tr key={producto.id}>
+                        <tr key={producto.id}>
                             <td>{producto.nombre}</td>
                             <td>{producto.precio}</td>
                             <td>{producto.categoriaId}</td>
                             <table>
-                                <button className='btn btn-primary' onClick={ () => btnEditar(producto.id)}>Editar</button>
-                                <button className='btn btn-danger'>Eliminar</button>
+                                <button className='btn btn-primary' onClick={() => btnEditar(producto.id)}>Editar</button>
+                                <button className='btn btn-danger' onClick={() => btnEliminar(producto.id)}>Eliminar</button>
                             </table>
-                         </tr>   
+                        </tr>
                     ))}
                 </tbody>
             </table>
