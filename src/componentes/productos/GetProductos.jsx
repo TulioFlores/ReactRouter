@@ -26,10 +26,15 @@ function GetProductos() {
             });
             if (resp.status == 200) {
                 alert("Producto eliminado exitosamente");
-                
+                const fila = document.getElementById(id).parentNode.parentNode;
+                const tabla = fila.parentNode;
+                tabla.removeChild(fila);
+
             }
-            location.reload();
+            // location.reload();
+
         }
+
     }
     const productos = use(productosPromise);
     return (
@@ -54,7 +59,7 @@ function GetProductos() {
                             <td>{producto.categoriaId}</td>
                             <table>
                                 <button className='btn btn-primary' onClick={() => btnEditar(producto.id)}>Editar</button>
-                                <button className='btn btn-danger' onClick={() => btnEliminar(producto.id)}>Eliminar</button>
+                                <button id={producto.id} className='btn btn-danger' onClick={() => btnEliminar(producto.id)}>Eliminar</button>
                             </table>
                         </tr>
                     ))}
