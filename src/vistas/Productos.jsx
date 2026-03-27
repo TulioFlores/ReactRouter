@@ -6,7 +6,7 @@ function Productos() {
   return (
     <div>
       <Header />
-      <Suspense  fallback={<h2>Cargando...</h2>}>
+      <Suspense  fallback={<h2>Cargando....</h2>}>
         {<GetProductos />}
       </Suspense>
 
